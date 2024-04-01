@@ -15,7 +15,7 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
         a = a + 1
         print(file)
         #forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None)
-        forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None, nrows=81)
+        forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None, nrows=81) #new sscha code also write stress
         #df_2 = forces.iloc[(forces.loc[forces[0]=='<varray name="stress" >'].index[0]+1):, :].reset_index(drop = True)
         forces.drop([0, 4], axis=1, inplace=True)
 

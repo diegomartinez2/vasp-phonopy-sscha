@@ -14,10 +14,13 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
     for file in all_files:
         a = a + 1
         print(file)
-        forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None)
+        #forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None)
+        forces = pd.read_csv(file, engine='python', sep="\s+", skiprows=1, header=None, nrows=81)
+        #df_2 = forces.iloc[(forces.loc[forces[0]=='<varray name="stress" >'].index[0]+1):, :].reset_index(drop = True)
         forces.drop([0, 4], axis=1, inplace=True)
 
         forces = forces * 0.0388937935
+        #forces = forces.apply(lambda x: x*0.388937935)
 
         processed_forces_path = f"data/forces_population{pop_id}_" + str(a) + ".dat"
         f = open(processed_forces_path, "w+")
@@ -31,6 +34,5 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
                     force =  forces.iloc[atom_occurrencies[j]*i+j*N+jj]
                     force = force.to_frame()
                     force = force.transpose()
+                    #force = force *0.0388937935
                     force.to_csv(f, index=False, header=False, float_format="%16.12f", sep='\t', mode="w+")
-
-        

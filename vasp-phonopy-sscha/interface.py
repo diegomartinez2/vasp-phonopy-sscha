@@ -122,8 +122,8 @@ class DynamicalMatrixArray():
             self.dynamical_matrix = (pd.read_csv(str(1) + ".txt", engine='python', sep="\s+", skiprows=9, nrows=3*self.n_atoms, header=None))
 
     def matrix_formatting(self):
-            self.dynamical_matrix = self.dynamical_matrix.drop(0, 1)
-            self.dynamical_matrix = self.dynamical_matrix.drop(1, 1)
+            self.dynamical_matrix = self.dynamical_matrix.drop(0, axis=1)
+            self.dynamical_matrix = self.dynamical_matrix.drop(1, axis=1)
             self.dynamical_matrix = self.dynamical_matrix.iloc[:, :-1]
             self.dynamical_matrix[:] = self.dynamical_matrix[:].replace({']': ''}, regex=True)
             self.dynamical_matrix[:] = self.dynamical_matrix[:].replace({',': ''}, regex=True)

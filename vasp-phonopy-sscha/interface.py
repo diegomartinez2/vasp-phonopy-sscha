@@ -14,11 +14,13 @@ import cellconstructor.Phonons
 
 # Import the SCHA modules
 import sscha, sscha.Ensemble
+
+# Import maths modules
 import math
 import os
 import numpy as np
 import pandas as pd
-import pandas as pd
+
 import re
 
 

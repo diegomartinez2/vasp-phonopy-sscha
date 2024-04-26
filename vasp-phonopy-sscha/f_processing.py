@@ -31,7 +31,7 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
             for j in range(len(type_atoms)):
                 for jj in range(0,int(atom_occurrencies[j])):
                     print("[",atom_occurrencies[j]*i+j*N+jj,"]")
-                    force =  forces.iloc[atom_occurrencies[j]*i+j*N+jj] #this do not work nicely
+                    force =  forces.iloc[atom_occurrencies[j]*i+j*N+jj] #this do not work nicely (need to be fixed to a generic way to relocate the indexes)
                     force = force.to_frame()
                     force = force.transpose()
                     #force = force *0.0388937935

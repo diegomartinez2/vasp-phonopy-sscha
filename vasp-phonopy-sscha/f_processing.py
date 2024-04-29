@@ -40,4 +40,4 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
         for i in range(N):
             for j in range(len(type_atoms)):
                 for k in range(int(atom_occurrencies[j])):
-                    print("[",atom_occurrencies[j]*i ,"],[",atom_occurrencies[j]*i+atom_occurrencies[j],"]")
+                    print("[",atom_occurrencies[j]*i+k,"]")

@@ -36,3 +36,8 @@ def f_processing(parsed_args,atom_occurrencies,type_atoms):
                     force = force.transpose()
                     #force = force *0.0388937935
                     force.to_csv(f, index=False, header=False, float_format="%16.12f", sep='\t', mode="w+")
+
+        for i in range(N):
+            for j in range(len(type_atoms)):
+                for k in range(int(atom_occurrencies[j])):
+                    print("[",atom_occurrencies[j]*i ,"],[",atom_occurrencies[j]*i+atom_occurrencies[j],"]")
